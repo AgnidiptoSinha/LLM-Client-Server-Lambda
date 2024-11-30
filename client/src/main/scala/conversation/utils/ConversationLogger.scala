@@ -1,5 +1,6 @@
 package conversation.utils
 
+import com.typesafe.scalalogging.Logger
 import conversation.models.{Conversation, ConversationTurn}
 //import org.slf4j.LoggerFactory
 import spray.json._
@@ -10,7 +11,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class ConversationLogger {
-//  private val logger = LoggerFactory.getLogger(getClass)
+  private val logger = Logger(getClass.getName)
   private val conversationsDir = "conversations"
 
   // Create conversations directory if it doesn't exist
@@ -32,10 +33,10 @@ class ConversationLogger {
       // Save as human-readable text
       saveFile(s"$timestamp.txt", formatConversationAsText(conversation))
 
-      println(s"Conversation saved to files: $timestamp.json and $timestamp.txt")
+      logger.info(s"Conversation saved to files: $timestamp.json and $timestamp.txt")
     } catch {
       case e: Exception =>
-        println(s"Failed to save conversation: ${e.getMessage}", e)
+        logger.error(s"Failed to save conversation: ${e.getMessage}", e)
         throw e
     }
   }
@@ -43,7 +44,7 @@ class ConversationLogger {
   private def saveFile(filename: String, content: String): Unit = {
     val filePath = Paths.get(conversationsDir, filename)
     Files.write(filePath, content.getBytes(StandardCharsets.UTF_8))
-    println(s"Saved file: ${filePath.toAbsolutePath}")
+    logger.info(s"Saved file: ${filePath.toAbsolutePath}")
   }
 
   private def formatConversationAsText(conversation: Conversation): String = {
