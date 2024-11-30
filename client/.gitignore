@@ -1,0 +1,14 @@
+# Scala/SBT specific
+target/
+.idea/
+.bsp/
+*.class
+#*.log
+
+# Project specific
+#conversations/
+#logs/
+
+# OS specific
+.DS_Store
+*~

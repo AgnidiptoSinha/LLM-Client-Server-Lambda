@@ -1,0 +1,20 @@
+syntax = "proto3";
+package lambda;
+
+option java_multiple_files = true;
+option java_package = "aws.lambda.grpc";
+
+message GenerateTextRequest {
+  string prompt = 1;
+  int32 max_tokens = 2;
+}
+
+message GenerateTextResponse {
+  string text = 1;
+  Status status = 2;
+}
+
+message Status {
+  int32 code = 1;
+  string message = 2;
+}

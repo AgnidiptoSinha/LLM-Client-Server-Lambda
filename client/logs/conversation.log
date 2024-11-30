@@ -1,0 +1,415 @@
+16:40:01.698 [main] INFO  Main$ - Starting application
+16:40:01.702 [main] WARN  Main$ - Test warning message
+16:40:02.525 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+16:40:02.683 [main] INFO  Main$ - Starting conversation with initial prompt: Describe
+16:40:02.704 [main] INFO  conversation.services.EC2Service - Processing query with prompt: Describe
+16:40:02.916 [main] DEBUG conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+16:40:05.025 [ConversationSystem-akka.actor.default-dispatcher-5] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+16:40:07.596 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Received OK response from EC2
+16:40:07.617 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Successfully processed EC2 response: mapped the following
+More information is needed for this model to provide an answer to your current query. Here is some information that may be relevant to your search.
+
+The model is unable to answer your question regarding the meaning of the term "ma
+16:40:07.623 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.OllamaService - Generating next prompt based on response: mapped the following
+More information is needed for this model to provide an answer to your current query. Here is some information that may be relevant to your search.
+
+The model is unable to answer your question regarding the meaning of the term "ma
+16:40:07.624 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.OllamaService - Sending prompt to Ollama: mapped the following
+More information is needed for this model to provide an answer to your current query. Here is some information that may be relevant to your search.
+
+The model is unable to answer your question regarding the meaning of the term "ma
+16:40:07.996 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 100
+  },
+  "stream" : false,
+  "prompt" : "mapped the following\nMore information is needed for this model to provide an answer to your current query. Here is some information that may be relevant to your search.\n\nThe model is unable to answer your question regarding the meaning of the term \"ma",
+  "raw" : false
+}
+16:40:10.794 [ConversationSystem-akka.actor.default-dispatcher-3] ERROR conversation.services.OllamaService - Error generating next prompt: null
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:560)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at io.github.ollama4j.models.request.OllamaEndpointCaller.callSync(OllamaEndpointCaller.java:70)
+	at io.github.ollama4j.OllamaAPI.generateSyncForOllamaRequestModel(OllamaAPI.java:585)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:357)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:373)
+	at conversation.services.OllamaService.generateNextPrompt(OllamaService.scala:42)
+	at conversation.ConversationalAgent.$anonfun$runConversation$1(ConversationalAgent.scala:33)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1020)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:179)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:238)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:488)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:368)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:492)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:492)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:344)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:336)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:347)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:384)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:374)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:293)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:152)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2593)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:246)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:633)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:539)
+	... 20 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:131)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:165)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:551)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:167)
+	... 45 common frames omitted
+16:40:10.798 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Processing query with prompt: Could you tell me more about mapped and following?
+16:40:10.798 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+16:40:10.799 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+16:40:12.383 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.EC2Service - Received OK response from EC2
+16:40:12.383 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Amazon Titan Foundation Models are pretrained on vast amounts of data. For more information on the data used to train Amazon Titan please see the relevant documentation and FAQs.
+16:40:12.383 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.OllamaService - Generating next prompt based on response: Amazon Titan Foundation Models are pretrained on vast amounts of data. For more information on the data used to train Amazon Titan please see the relevant documentation and FAQs.
+16:40:12.383 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.OllamaService - Sending prompt to Ollama: Amazon Titan Foundation Models are pretrained on vast amounts of data. For more information on the data used to train Amazon Titan please see the relevant documentation and FAQs.
+16:40:12.385 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 100
+  },
+  "stream" : false,
+  "prompt" : "Amazon Titan Foundation Models are pretrained on vast amounts of data. For more information on the data used to train Amazon Titan please see the relevant documentation and FAQs.",
+  "raw" : false
+}
+16:40:12.386 [ConversationSystem-akka.actor.default-dispatcher-5] ERROR conversation.services.OllamaService - Error generating next prompt: null
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:560)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at io.github.ollama4j.models.request.OllamaEndpointCaller.callSync(OllamaEndpointCaller.java:70)
+	at io.github.ollama4j.OllamaAPI.generateSyncForOllamaRequestModel(OllamaAPI.java:585)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:357)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:373)
+	at conversation.services.OllamaService.generateNextPrompt(OllamaService.scala:42)
+	at conversation.ConversationalAgent.$anonfun$runConversation$1(ConversationalAgent.scala:33)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1020)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:179)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:238)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:488)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:368)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:492)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:492)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:344)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:336)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:347)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:384)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:374)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:293)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:152)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2593)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:246)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:633)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:539)
+	... 20 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:131)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:165)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:551)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:167)
+	... 45 common frames omitted
+16:40:12.387 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.EC2Service - Processing query with prompt: Could you tell me more about Amazon and Titan?
+16:40:12.387 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+16:40:12.388 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+16:40:14.060 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Received OK response from EC2
+16:40:14.060 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:14.061 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.OllamaService - Generating next prompt based on response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:14.061 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.OllamaService - Sending prompt to Ollama: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:14.063 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 100
+  },
+  "stream" : false,
+  "prompt" : "Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  \n\nWhen comparing large language models, there are",
+  "raw" : false
+}
+16:40:14.064 [ConversationSystem-akka.actor.default-dispatcher-3] ERROR conversation.services.OllamaService - Error generating next prompt: null
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:560)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at io.github.ollama4j.models.request.OllamaEndpointCaller.callSync(OllamaEndpointCaller.java:70)
+	at io.github.ollama4j.OllamaAPI.generateSyncForOllamaRequestModel(OllamaAPI.java:585)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:357)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:373)
+	at conversation.services.OllamaService.generateNextPrompt(OllamaService.scala:42)
+	at conversation.ConversationalAgent.$anonfun$runConversation$1(ConversationalAgent.scala:33)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1020)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:179)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:238)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:488)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:368)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:492)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:492)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:344)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:336)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:347)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:384)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:374)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:293)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:152)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2593)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:246)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:633)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:539)
+	... 20 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:131)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:165)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:551)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:167)
+	... 45 common frames omitted
+16:40:14.065 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Processing query with prompt: Could you tell me more about Amazon and Titan?
+16:40:14.065 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+16:40:14.067 [ConversationSystem-akka.actor.default-dispatcher-5] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+16:40:15.772 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.EC2Service - Received OK response from EC2
+16:40:15.774 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. These models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved. 
+
+When comparing large language models, there are many
+16:40:15.774 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.OllamaService - Generating next prompt based on response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. These models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved. 
+
+When comparing large language models, there are many
+16:40:15.774 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.OllamaService - Sending prompt to Ollama: Amazon Titan is a family of large language models that are available through Amazon Bedrock. These models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved. 
+
+When comparing large language models, there are many
+16:40:15.775 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 100
+  },
+  "stream" : false,
+  "prompt" : "Amazon Titan is a family of large language models that are available through Amazon Bedrock. These models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved. \n\nWhen comparing large language models, there are many",
+  "raw" : false
+}
+16:40:15.777 [ConversationSystem-akka.actor.default-dispatcher-5] ERROR conversation.services.OllamaService - Error generating next prompt: null
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:560)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at io.github.ollama4j.models.request.OllamaEndpointCaller.callSync(OllamaEndpointCaller.java:70)
+	at io.github.ollama4j.OllamaAPI.generateSyncForOllamaRequestModel(OllamaAPI.java:585)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:357)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:373)
+	at conversation.services.OllamaService.generateNextPrompt(OllamaService.scala:42)
+	at conversation.ConversationalAgent.$anonfun$runConversation$1(ConversationalAgent.scala:33)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1020)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:179)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:238)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:488)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:368)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:492)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:492)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:344)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:336)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:347)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:384)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:374)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:293)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:152)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2593)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:246)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:633)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:539)
+	... 20 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:131)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:165)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:551)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:167)
+	... 45 common frames omitted
+16:40:15.778 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.EC2Service - Processing query with prompt: Could you tell me more about Amazon and Titan?
+16:40:15.778 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+16:40:15.779 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+16:40:17.463 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.EC2Service - Received OK response from EC2
+16:40:17.463 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:17.463 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  conversation.services.OllamaService - Generating next prompt based on response: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:17.463 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG conversation.services.OllamaService - Sending prompt to Ollama: Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  
+
+When comparing large language models, there are
+16:40:17.465 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 100
+  },
+  "stream" : false,
+  "prompt" : "Amazon Titan is a family of large language models that are available through Amazon Bedrock. Amazon Titan models are available in different sizes and modalities. The performance of the Amazon Titan models are continuously being improved.  \n\nWhen comparing large language models, there are",
+  "raw" : false
+}
+16:40:17.466 [ConversationSystem-akka.actor.default-dispatcher-5] ERROR conversation.services.OllamaService - Error generating next prompt: null
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:560)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at io.github.ollama4j.models.request.OllamaEndpointCaller.callSync(OllamaEndpointCaller.java:70)
+	at io.github.ollama4j.OllamaAPI.generateSyncForOllamaRequestModel(OllamaAPI.java:585)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:357)
+	at io.github.ollama4j.OllamaAPI.generate(OllamaAPI.java:373)
+	at conversation.services.OllamaService.generateNextPrompt(OllamaService.scala:42)
+	at conversation.ConversationalAgent.$anonfun$runConversation$1(ConversationalAgent.scala:33)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1020)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:179)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:238)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:488)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:368)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:492)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:492)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:344)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:336)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:347)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:384)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:930)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:946)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2268)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:374)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:293)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:152)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2593)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:246)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:633)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:539)
+	... 20 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:131)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:165)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:551)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:167)
+	... 45 common frames omitted
+16:40:17.478 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG c.utils.ConversationLogger - Saved file: C:\Work Modules\Coding\Scala\LLM-Conversational-Agent\conversations\2024-11-29_16-40-17.json
+16:40:17.480 [ConversationSystem-akka.actor.default-dispatcher-5] DEBUG c.utils.ConversationLogger - Saved file: C:\Work Modules\Coding\Scala\LLM-Conversational-Agent\conversations\2024-11-29_16-40-17.txt
+16:40:17.480 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-11-29_16-40-17.json and 2024-11-29_16-40-17.txt
+16:40:17.480 [ConversationSystem-akka.actor.default-dispatcher-5] INFO  Main$ - Conversation completed successfully. Conversation ID: 0e488c60-1e07-40d2-9c56-cad2c91b4ab5

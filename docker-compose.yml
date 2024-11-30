@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  llm-server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: llm-microservice
+    ports:
+      - "8000:8000"
+    networks:
+      - llm-network
+
+  llm-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: llm-conversational-agent
+    volumes:
+      - ./logs:/app/logs:rw
+      - ./conversations:/app/conversations:rw
+    environment:
+      - EC2_URL=http://llm-server:8000
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    networks:
+      - llm-network
+    depends_on:
+      - llm-server
+    command: ["Tell me about artificial intelligence"]
+
+networks:
+  llm-network:
+    name: llm-network
+    driver: bridge

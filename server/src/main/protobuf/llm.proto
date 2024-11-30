@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package aws.lambda;
+
+option java_multiple_files = true;
+option java_package = "aws.lambda.proto";
+option java_outer_classname = "LLMServiceProto";
+
+// Request message for text generation
+message GenerateTextRequest {
+  string prompt = 1;
+  int32 max_tokens = 2;
+}
+
+// Response message containing generated text
+message GenerateTextResponse {
+  string text = 1;
+  Status status = 2;
+}
+
+// Status information
+message Status {
+  int32 code = 1;
+  string message = 2;
+}
+
+// Service definition
+service LLMService {
+  rpc GenerateText (GenerateTextRequest) returns (GenerateTextResponse);
+}

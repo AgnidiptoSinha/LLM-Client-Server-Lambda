@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  llm-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: llm-conversational-agent
+    volumes:
+      - ./logs:/app/logs:rw
+      - ./conversations:/app/conversations:rw
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m -Dlogback.debug=true
+      # For EC2 communication
+      - EC2_URL=http://ec2-34-236-143-255.compute-1.amazonaws.com:8000
+      # For local Ollama
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    networks:
+      - llm-network
+    command: ["Tell me about artificial intelligence"]
+
+networks:
+  llm-network:
+    name: llm-network
+    driver: bridge

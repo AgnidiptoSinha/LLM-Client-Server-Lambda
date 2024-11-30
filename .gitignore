@@ -1,0 +1,55 @@
+# Scala/SBT specific
+target/
+/project/**/target/
+/build-sbt/
+local.sbt
+.bsp/
+.idea/
+.metals/
+.bloop/
+project/**/metals.sbt
+*.class
+
+# Build and Output directories
+/build/
+/out/
+/bin/
+/sandbox/
+/build-restarr/
+/target-restarr/
+/qbin
+
+# IDE - IntelliJ
+/Lambda-Bedrock/.idea/
+/.idea/
+/src/intellij*/*.iml
+/src/intellij*/*.ipr
+/src/intellij*/*.iws
+**/.cache
+/.settings/
+
+# VS Code
+/.vscode/
+
+# Dependencies
+/lib/*.jar
+/test/files/codelib/*.jar
+/test/files/lib/*.jar
+/test/files/speclib/instrumented.jar
+/tools/*.jar
+
+# Properties and Configuration
+/build.properties
+/buildcharacter.properties
+/jenkins.properties
+.history
+
+# Project specific
+/src/main/resources/application.conf
+
+# OS specific
+.DS_Store
+*~
+
+# Keep subdirectory .gitignore files
+!*/.gitignore

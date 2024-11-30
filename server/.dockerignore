@@ -1,0 +1,10 @@
+.git
+.gitignore
+target/
+project/target/
+project/project/
+.idea/
+*.iml
+*.class
+*.log
+.bsp/
