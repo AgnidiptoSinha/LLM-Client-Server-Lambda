@@ -1370,3 +1370,100 @@ Caused by: java.nio.channels.UnresolvedAddressException: null
 2024-11-30 20:23:12.902 [pool-5-thread-15-ScalaTest-running-ConversationalSystemSpec] INFO  c.utils.ConversationLogger - Saved file: C:\Work Modules\Coding\Scala\root\client\conversations\2024-11-30_20-23-12.txt
 2024-11-30 20:23:12.903 [pool-5-thread-15-ScalaTest-running-ConversationalSystemSpec] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-11-30_20-23-12.json and 2024-11-30_20-23-12.txt
 2024-11-30 20:23:12.932 [ConversationalSystemSpec-akka.actor.default-dispatcher-20] INFO  akka.actor.CoordinatedShutdown - Running CoordinatedShutdown with reason [ActorSystemTerminateReason]
+2024-11-30 21:01:09.963 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-11-30 21:01:10.057 [sbt-bg-threads-1] ERROR Main$ - Fatal error occurred
+com.typesafe.config.ConfigException$Missing: application.conf @ jar:file:/C:/Work%20Modules/Coding/Scala/root/client/target/bg-jobs/sbt_eef61889/job-1/target/8f5dc3b1/70bd6f59/llm-conversational-agent_2.13-0.1.jar!/application.conf: 10: No configuration setting found for key 'ec2.url'
+	at com.typesafe.config.impl.SimpleConfig.findKeyOrNull(SimpleConfig.java:157)
+	at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:175)
+	at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:181)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:189)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:194)
+	at com.typesafe.config.impl.SimpleConfig.getString(SimpleConfig.java:251)
+	at conversation.config.AppConfig$.load(AppConfig.scala:30)
+	at Main$.delayedEndpoint$Main$1(Main.scala:25)
+	at Main$delayedInit$body.apply(Main.scala:12)
+	at scala.Function0.apply$mcV$sp(Function0.scala:42)
+	at scala.Function0.apply$mcV$sp$(Function0.scala:42)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)
+	at scala.App.$anonfun$main$1(App.scala:98)
+	at scala.App.$anonfun$main$1$adapted(App.scala:98)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:576)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:574)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:933)
+	at scala.App.main(App.scala:98)
+	at scala.App.main$(App.scala:96)
+	at Main$.main(Main.scala:12)
+	at Main.main(Main.scala)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at sbt.Run.invokeMain(Run.scala:144)
+	at sbt.Run.execute$1(Run.scala:94)
+	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:121)
+	at sbt.Run$.executeSuccess(Run.scala:187)
+	at sbt.Run.runWithLoader(Run.scala:121)
+	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:2030)
+	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1969)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.util.Try$.apply(Try.scala:213)
+	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:367)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-11-30 21:08:08.080 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-11-30 21:08:08.187 [sbt-bg-threads-1] INFO  Main$ - Starting conversation with initial prompt: Tell me about cats
+2024-11-30 21:08:08.208 [sbt-bg-threads-1] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 0c3be7fb-c436-482d-b9ac-64de1e6f331b
+2024-11-30 21:08:08.209 [sbt-bg-threads-1] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about cats (Retries left: 3)
+2024-11-30 21:08:08.374 [sbt-bg-threads-1] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com/generate
+2024-11-30 21:08:11.145 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information. Retrying in 5 seconds...
+2024-11-30 21:08:16.165 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about cats (Retries left: 2)
+2024-11-30 21:08:16.166 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com/generate
+2024-11-30 21:08:18.402 [ConversationSystem-akka.actor.default-dispatcher-21] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information. Retrying in 10 seconds...
+2024-11-30 21:08:28.427 [ConversationSystem-akka.actor.default-dispatcher-24] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about cats (Retries left: 1)
+2024-11-30 21:08:28.427 [ConversationSystem-akka.actor.default-dispatcher-24] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com/generate
+2024-11-30 21:08:30.670 [ConversationSystem-akka.actor.default-dispatcher-25] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information. Retrying in 20 seconds...
+2024-11-30 21:08:50.682 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about cats (Retries left: 0)
+2024-11-30 21:08:50.683 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com/generate
+2024-11-30 21:08:52.938 [ConversationSystem-akka.actor.default-dispatcher-21] ERROR conversation.services.EC2Service - All retry attempts failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information
+akka.stream.StreamTcpException: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.$anonfun$applyOrElse$4(TcpOutgoingConnection.scala:111)
+	at akka.io.TcpOutgoingConnection.akka$io$TcpOutgoingConnection$$reportConnectFailure(TcpOutgoingConnection.scala:53)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.applyOrElse(TcpOutgoingConnection.scala:111)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.io.TcpConnection.aroundReceive(TcpConnection.scala:33)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+2024-11-30 21:08:52.940 [ConversationSystem-akka.actor.default-dispatcher-21] ERROR Main$ - Conversation failed
+akka.stream.StreamTcpException: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com:80,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused: no further information
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.$anonfun$applyOrElse$4(TcpOutgoingConnection.scala:111)
+	at akka.io.TcpOutgoingConnection.akka$io$TcpOutgoingConnection$$reportConnectFailure(TcpOutgoingConnection.scala:53)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.applyOrElse(TcpOutgoingConnection.scala:111)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.io.TcpConnection.aroundReceive(TcpConnection.scala:33)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
