@@ -12,7 +12,7 @@ services:
     environment:
       - JAVA_OPTS=-Xms512m -Xmx1024m -Dlogback.debug=true
       # For EC2 communication
-      - EC2_URL=http://ec2-34-236-143-255.compute-1.amazonaws.com:8000
+      - EC2_URL=http://ec2-54-89-45-115.compute-1.amazonaws.com:8000
       # For local Ollama
       - OLLAMA_HOST=http://host.docker.internal:11434
     networks:

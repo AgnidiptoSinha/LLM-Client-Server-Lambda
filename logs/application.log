@@ -1,205 +1,907 @@
-2024-11-30 21:38:28.079 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-2024-11-30 21:38:28.176 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
-2024-11-30 21:38:28.208 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: d6c57e95-cf88-4d8d-9730-fdd56e07749e
-2024-11-30 21:38:28.209 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
-2024-11-30 21:38:28.355 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:38:28.984 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(llm-server/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 5 seconds...
-2024-11-30 21:38:33.999 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 2)
-2024-11-30 21:38:34.008 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:38:34.026 [ConversationSystem-akka.actor.default-dispatcher-17] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
-2024-11-30 21:38:50.665 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.services.EC2Service - Received OK response from EC2
-2024-11-30 21:38:50.684 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Artificial intelligence, or AI, is a technology that allows machines to do things that would typically require human intelligence. AI is a broad term that encompasses many different techniques, including machine learning, deep learning, natural language processing, and computer vision.
-2024-11-30 21:38:50.687 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.ConversationalAgent - Turn 1: Prompt='Tell me about artificial intelligence', Response='Artificial intelligence, or AI, is a technology that allows machines to do things that would typically require human intelligence. AI is a broad term that encompasses many different techniques, including machine learning, deep learning, natural language processing, and computer vision.'
-2024-11-30 21:38:50.688 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Artificial intelligence, or AI, is a technology that allows machines to do things that would typically require human intelligence. AI is a broad term that encompasses many different techniques, including machine learning, deep learning, natural language processing, and computer vision.
-2024-11-30 21:38:50.690 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Artificial intelligence, or AI, is a technology that allows machines to do things that would typically require human intelligence. AI is a broad term that encompasses many different techniques, including machine learning, deep learning, natural language processing, and computer vision.
-2024-11-30 21:38:50.902 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+2024-12-01 00:23:08.317 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:23:08.484 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:23:08.567 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 442ae870-bd2a-4506-8818-52aefdb7cffe
+2024-12-01 00:23:08.568 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:23:08.868 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:23:12.054 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 5 seconds...
+2024-12-01 00:23:17.076 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 2)
+2024-12-01 00:23:17.078 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:23:19.300 [ConversationSystem-akka.actor.default-dispatcher-15] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 10 seconds...
+2024-12-01 00:24:58.479 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:24:58.663 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:24:58.723 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 7336ad94-564e-4720-928d-ac6ece76f140
+2024-12-01 00:24:58.728 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:24:59.038 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:25:02.929 [ConversationSystem-akka.actor.default-dispatcher-6] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-34-236-143-255.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 5 seconds...
+2024-12-01 00:25:07.997 [ConversationSystem-akka.actor.default-dispatcher-16] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 2)
+2024-12-01 00:25:08.001 [ConversationSystem-akka.actor.default-dispatcher-16] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:28:35.435 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:28:35.538 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:28:35.572 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 72fe6644-778f-4cc8-b744-d145cd9ba1b7
+2024-12-01 00:28:35.572 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:28:35.746 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:28:38.581 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 5 seconds...
+2024-12-01 00:28:43.598 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 2)
+2024-12-01 00:28:43.600 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:28:45.801 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 10 seconds...
+2024-12-01 00:28:55.819 [ConversationSystem-akka.actor.default-dispatcher-3] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 1)
+2024-12-01 00:28:55.820 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:28:58.041 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 20 seconds...
+2024-12-01 00:29:18.058 [ConversationSystem-akka.actor.default-dispatcher-16] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 0)
+2024-12-01 00:29:18.060 [ConversationSystem-akka.actor.default-dispatcher-16] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:29:20.285 [ConversationSystem-akka.actor.default-dispatcher-16] ERROR conversation.services.EC2Service - All retry attempts failed: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused
+akka.stream.StreamTcpException: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.$anonfun$applyOrElse$4(TcpOutgoingConnection.scala:111)
+	at akka.io.TcpOutgoingConnection.akka$io$TcpOutgoingConnection$$reportConnectFailure(TcpOutgoingConnection.scala:53)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.applyOrElse(TcpOutgoingConnection.scala:111)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.io.TcpConnection.aroundReceive(TcpConnection.scala:33)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+2024-12-01 00:29:20.287 [ConversationSystem-akka.actor.default-dispatcher-16] ERROR Main$ - Conversation failed
+akka.stream.StreamTcpException: Tcp command [Connect(ec2-54-89-45-115.compute-1.amazonaws.com/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.$anonfun$applyOrElse$4(TcpOutgoingConnection.scala:111)
+	at akka.io.TcpOutgoingConnection.akka$io$TcpOutgoingConnection$$reportConnectFailure(TcpOutgoingConnection.scala:53)
+	at akka.io.TcpOutgoingConnection$$anonfun$connecting$1.applyOrElse(TcpOutgoingConnection.scala:111)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.io.TcpConnection.aroundReceive(TcpConnection.scala:33)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+2024-12-01 00:29:48.660 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:29:48.746 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:29:48.779 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 1ff614ff-9678-4bcd-b604-975e38bd8619
+2024-12-01 00:29:48.779 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:29:48.913 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:29:49.502 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:30:06.249 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:30:06.267 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can perform tasks that typically require human intelligence. AI systems are designed to reason, perceive, synthesize, and infer information, and to engage in
+2024-12-01 00:30:06.271 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 1: Prompt='Tell me about artificial intelligence', Response='Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can perform tasks that typically require human intelligence. AI systems are designed to reason, perceive, synthesize, and infer information, and to engage in'
+2024-12-01 00:30:06.272 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can perform tasks that typically require human intelligence. AI systems are designed to reason, perceive, synthesize, and infer information, and to engage in
+2024-12-01 00:30:06.273 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can perform tasks that typically require human intelligence. AI systems are designed to reason, perceive, synthesize, and infer information, and to engage in
+2024-12-01 00:30:06.526 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
   "model" : "llama3.2",
   "options" : {
     "temperature" : 0.4,
     "num_predict" : 50
   },
   "stream" : false,
-  "prompt" : "Artificial intelligence, or AI, is a technology that allows machines to do things that would typically require human intelligence. AI is a broad term that encompasses many different techniques, including machine learning, deep learning, natural language processing, and computer vision.",
+  "prompt" : "Artificial intelligence (AI) is a branch of computer science that aims to create intelligent machines that can perform tasks that typically require human intelligence. AI systems are designed to reason, perceive, synthesize, and infer information, and to engage in",
   "raw" : false
 }
-2024-11-30 21:38:55.923 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  io.github.ollama4j.OllamaAPI - Model response: {
-  "response" : "That's correct! Artificial intelligence (AI) refers to the development of computer systems that can perform tasks that would normally require human intelligence, such as:\n\n1. Machine Learning: The ability of machines to learn from data and improve their performance over time without",
+2024-12-01 00:30:13.660 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "...learning, problem-solving, decision-making, and other cognitive functions that are characteristic of human intelligence. The ultimate goal of AI is to create machines that can think, learn, and behave like humans, with the ability to perform tasks that would typically require",
   "httpStatusCode" : 200,
-  "responseTime" : 5230
+  "responseTime" : 7379
 }
-2024-11-30 21:38:55.924 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.services.OllamaService - Generated follow-up question: That's correct! Artificial intelligence (AI) refers to the development of computer systems that can perform tasks that would normally require human intelligence, such as:
+2024-12-01 00:30:13.661 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: ...learning, problem-solving, decision-making, and other cognitive functions that are characteristic of human intelligence. The ultimate goal of AI is to create machines that can think, learn, and behave like humans, with the ability to perform tasks that would typically require
+2024-12-01 00:30:13.661 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: ...learning, problem-solving, decision-making, and other cognitive functions that are characteristic of human intelligence. The ultimate goal of AI is to create machines that can think, learn, and behave like humans, with the ability to perform tasks that would typically require (Retries left: 3)
+2024-12-01 00:30:13.662 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:30:13.665 [ConversationSystem-akka.actor.default-dispatcher-8] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:30:15.405 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:30:15.406 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: human intelligence.
 
-1. Machine Learning: The ability of machines to learn from data and improve their performance over time without
-2024-11-30 21:38:55.925 [ConversationSystem-akka.actor.default-dispatcher-17] DEBUG conversation.services.EC2Service - Processing query with prompt: That's correct! Artificial intelligence (AI) refers to the development of computer systems that can perform tasks that would normally require human intelligence, such as:
+The term "AI" can be applied to a wide range of technologies, including computer systems, software, algorithms, and data structures. These technologies are designed to perform specific tasks, such as image recognition, natural language processing,
+2024-12-01 00:30:15.407 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 2: Prompt='...learning, problem-solving, decision-making, and other cognitive functions that are characteristic of human intelligence. The ultimate goal of AI is to create machines that can think, learn, and behave like humans, with the ability to perform tasks that would typically require', Response='human intelligence.
 
-1. Machine Learning: The ability of machines to learn from data and improve their performance over time without (Retries left: 3)
-2024-11-30 21:38:55.926 [ConversationSystem-akka.actor.default-dispatcher-17] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:38:55.928 [ConversationSystem-akka.actor.default-dispatcher-17] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
-2024-11-30 21:38:57.648 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
-2024-11-30 21:38:57.650 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: being explicitly programmed.
-2. Natural Language Processing (NLP): The ability of machines to understand and interpret human language.
-3. Computer Vision: The ability of machines to understand and interpret images and videos.
-4. Robotics:
-2024-11-30 21:38:57.650 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 2: Prompt='That's correct! Artificial intelligence (AI) refers to the development of computer systems that can perform tasks that would normally require human intelligence, such as:
+The term "AI" can be applied to a wide range of technologies, including computer systems, software, algorithms, and data structures. These technologies are designed to perform specific tasks, such as image recognition, natural language processing,'
+2024-12-01 00:30:15.407 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: human intelligence.
 
-1. Machine Learning: The ability of machines to learn from data and improve their performance over time without', Response='being explicitly programmed.
-2. Natural Language Processing (NLP): The ability of machines to understand and interpret human language.
-3. Computer Vision: The ability of machines to understand and interpret images and videos.
-4. Robotics:'
-2024-11-30 21:38:57.651 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: being explicitly programmed.
-2. Natural Language Processing (NLP): The ability of machines to understand and interpret human language.
-3. Computer Vision: The ability of machines to understand and interpret images and videos.
-4. Robotics:
-2024-11-30 21:38:57.651 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: being explicitly programmed.
-2. Natural Language Processing (NLP): The ability of machines to understand and interpret human language.
-3. Computer Vision: The ability of machines to understand and interpret images and videos.
-4. Robotics:
-2024-11-30 21:38:57.653 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+The term "AI" can be applied to a wide range of technologies, including computer systems, software, algorithms, and data structures. These technologies are designed to perform specific tasks, such as image recognition, natural language processing,
+2024-12-01 00:30:15.408 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: human intelligence.
+
+The term "AI" can be applied to a wide range of technologies, including computer systems, software, algorithms, and data structures. These technologies are designed to perform specific tasks, such as image recognition, natural language processing,
+2024-12-01 00:30:15.410 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
   "model" : "llama3.2",
   "options" : {
     "temperature" : 0.4,
     "num_predict" : 50
   },
   "stream" : false,
-  "prompt" : "being explicitly programmed.\n2. Natural Language Processing (NLP): The ability of machines to understand and interpret human language.\n3. Computer Vision: The ability of machines to understand and interpret images and videos.\n4. Robotics:",
+  "prompt" : "human intelligence.\n\nThe term \"AI\" can be applied to a wide range of technologies, including computer systems, software, algorithms, and data structures. These technologies are designed to perform specific tasks, such as image recognition, natural language processing,",
   "raw" : false
 }
-2024-11-30 21:38:58.259 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
-  "response" : "It seems like you're listing some areas of artificial intelligence (AI). Here are the completed items:\n\n1. **Machine Learning**: The ability of machines to learn from data and improve their performance without being explicitly programmed.\n2. **Natural Language Processing (",
+2024-12-01 00:30:16.099 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "Human intelligence refers to the complex cognitive abilities that enable humans to perceive, process, and respond to information from their environment. It encompasses various aspects of cognition, including:\n\n1. **Perception**: The ability to detect and interpret sensory information from the environment",
   "httpStatusCode" : 200,
-  "responseTime" : 607
+  "responseTime" : 690
 }
-2024-11-30 21:38:58.259 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing some areas of artificial intelligence (AI). Here are the completed items:
+2024-12-01 00:30:16.100 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: Human intelligence refers to the complex cognitive abilities that enable humans to perceive, process, and respond to information from their environment. It encompasses various aspects of cognition, including:
 
-1. **Machine Learning**: The ability of machines to learn from data and improve their performance without being explicitly programmed.
-2. **Natural Language Processing (
-2024-11-30 21:38:58.260 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: It seems like you're listing some areas of artificial intelligence (AI). Here are the completed items:
+1. **Perception**: The ability to detect and interpret sensory information from the environment
+2024-12-01 00:30:16.100 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: Human intelligence refers to the complex cognitive abilities that enable humans to perceive, process, and respond to information from their environment. It encompasses various aspects of cognition, including:
 
-1. **Machine Learning**: The ability of machines to learn from data and improve their performance without being explicitly programmed.
-2. **Natural Language Processing ( (Retries left: 3)
-2024-11-30 21:38:58.260 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:38:58.263 [ConversationSystem-akka.actor.default-dispatcher-22] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
-2024-11-30 21:38:59.931 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.EC2Service - Received OK response from EC2
-2024-11-30 21:38:59.932 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.services.EC2Service - Successfully processed EC2 response: NLP)**: The ability of machines to understand, interpret, and generate human language.
-3. **Computer Vision**: The ability of machines to perceive and understand visual data.
-4. **Robotics**: The design, construction,
-2024-11-30 21:38:59.932 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.ConversationalAgent - Turn 3: Prompt='It seems like you're listing some areas of artificial intelligence (AI). Here are the completed items:
+1. **Perception**: The ability to detect and interpret sensory information from the environment (Retries left: 3)
+2024-12-01 00:30:16.101 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:30:16.104 [ConversationSystem-akka.actor.default-dispatcher-17] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:30:18.002 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:30:18.003 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: . This includes the ability to see, hear, touch, taste, and smell, as well as to perceive visual, auditory, and tactile patterns.
 
-1. **Machine Learning**: The ability of machines to learn from data and improve their performance without being explicitly programmed.
-2. **Natural Language Processing (', Response='NLP)**: The ability of machines to understand, interpret, and generate human language.
-3. **Computer Vision**: The ability of machines to perceive and understand visual data.
-4. **Robotics**: The design, construction,'
-2024-11-30 21:38:59.933 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.OllamaService - Generating next prompt based on response: NLP)**: The ability of machines to understand, interpret, and generate human language.
-3. **Computer Vision**: The ability of machines to perceive and understand visual data.
-4. **Robotics**: The design, construction,
-2024-11-30 21:38:59.933 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.services.OllamaService - Sending prompt to Ollama: NLP)**: The ability of machines to understand, interpret, and generate human language.
-3. **Computer Vision**: The ability of machines to perceive and understand visual data.
-4. **Robotics**: The design, construction,
-2024-11-30 21:38:59.935 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+2. **Reasoning**: The ability to use logic and reasoning to solve problems and make
+2024-12-01 00:30:18.004 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 3: Prompt='Human intelligence refers to the complex cognitive abilities that enable humans to perceive, process, and respond to information from their environment. It encompasses various aspects of cognition, including:
+
+1. **Perception**: The ability to detect and interpret sensory information from the environment', Response='. This includes the ability to see, hear, touch, taste, and smell, as well as to perceive visual, auditory, and tactile patterns.
+
+2. **Reasoning**: The ability to use logic and reasoning to solve problems and make'
+2024-12-01 00:30:18.004 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: . This includes the ability to see, hear, touch, taste, and smell, as well as to perceive visual, auditory, and tactile patterns.
+
+2. **Reasoning**: The ability to use logic and reasoning to solve problems and make
+2024-12-01 00:30:18.005 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: . This includes the ability to see, hear, touch, taste, and smell, as well as to perceive visual, auditory, and tactile patterns.
+
+2. **Reasoning**: The ability to use logic and reasoning to solve problems and make
+2024-12-01 00:30:18.007 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
   "model" : "llama3.2",
   "options" : {
     "temperature" : 0.4,
     "num_predict" : 50
   },
   "stream" : false,
-  "prompt" : "NLP)**: The ability of machines to understand, interpret, and generate human language.\n3. **Computer Vision**: The ability of machines to perceive and understand visual data.\n4. **Robotics**: The design, construction,",
+  "prompt" : ". This includes the ability to see, hear, touch, taste, and smell, as well as to perceive visual, auditory, and tactile patterns.\n\n2. **Reasoning**: The ability to use logic and reasoning to solve problems and make",
   "raw" : false
 }
-2024-11-30 21:39:00.555 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  io.github.ollama4j.OllamaAPI - Model response: {
-  "response" : "It seems like you're listing some areas of Artificial Intelligence (AI). Here's a continuation of the list:\n\n5. **Natural Language Processing (NLP)**: The ability of machines to understand, interpret, and generate human language.\n6. **",
+2024-12-01 00:30:18.785 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It seems like you're starting a list of human senses and cognitive abilities. Here's a possible completion:\n\n1. **Sight**: The ability to see.\n2. **Hearing**: The ability to hear.\n3. **Touch**: The ability",
   "httpStatusCode" : 200,
-  "responseTime" : 621
+  "responseTime" : 780
 }
-2024-11-30 21:39:00.555 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing some areas of Artificial Intelligence (AI). Here's a continuation of the list:
+2024-12-01 00:30:18.786 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're starting a list of human senses and cognitive abilities. Here's a possible completion:
 
-5. **Natural Language Processing (NLP)**: The ability of machines to understand, interpret, and generate human language.
-6. **
-2024-11-30 21:39:00.556 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.EC2Service - Processing query with prompt: It seems like you're listing some areas of Artificial Intelligence (AI). Here's a continuation of the list:
+1. **Sight**: The ability to see.
+2. **Hearing**: The ability to hear.
+3. **Touch**: The ability
+2024-12-01 00:30:18.787 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: It seems like you're starting a list of human senses and cognitive abilities. Here's a possible completion:
 
-5. **Natural Language Processing (NLP)**: The ability of machines to understand, interpret, and generate human language.
-6. ** (Retries left: 3)
-2024-11-30 21:39:00.557 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:39:00.559 [ConversationSystem-akka.actor.default-dispatcher-6] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
-2024-11-30 21:39:02.316 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
-2024-11-30 21:39:02.316 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Computer Vision**: The ability of machines to analyze and understand visual data, such as images and videos.
-7. **Machine Learning**: The process of teaching machines to perform tasks without being explicitly programmed.
-8. **Robotics**: The
-2024-11-30 21:39:02.317 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 4: Prompt='It seems like you're listing some areas of Artificial Intelligence (AI). Here's a continuation of the list:
+1. **Sight**: The ability to see.
+2. **Hearing**: The ability to hear.
+3. **Touch**: The ability (Retries left: 3)
+2024-12-01 00:30:18.787 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:30:18.790 [ConversationSystem-akka.actor.default-dispatcher-18] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:30:20.663 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:30:20.664 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: to touch.
+4. **Smell**: The ability to smell.
+5. **Taste**: The ability to taste.
+6. **Tactile**: The ability to feel texture.
+7. **Prop
+2024-12-01 00:30:20.664 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 4: Prompt='It seems like you're starting a list of human senses and cognitive abilities. Here's a possible completion:
 
-5. **Natural Language Processing (NLP)**: The ability of machines to understand, interpret, and generate human language.
-6. **', Response='Computer Vision**: The ability of machines to analyze and understand visual data, such as images and videos.
-7. **Machine Learning**: The process of teaching machines to perform tasks without being explicitly programmed.
-8. **Robotics**: The'
-2024-11-30 21:39:02.317 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Computer Vision**: The ability of machines to analyze and understand visual data, such as images and videos.
-7. **Machine Learning**: The process of teaching machines to perform tasks without being explicitly programmed.
-8. **Robotics**: The
-2024-11-30 21:39:02.318 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Computer Vision**: The ability of machines to analyze and understand visual data, such as images and videos.
-7. **Machine Learning**: The process of teaching machines to perform tasks without being explicitly programmed.
-8. **Robotics**: The
-2024-11-30 21:39:02.319 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+1. **Sight**: The ability to see.
+2. **Hearing**: The ability to hear.
+3. **Touch**: The ability', Response='to touch.
+4. **Smell**: The ability to smell.
+5. **Taste**: The ability to taste.
+6. **Tactile**: The ability to feel texture.
+7. **Prop'
+2024-12-01 00:30:20.665 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: to touch.
+4. **Smell**: The ability to smell.
+5. **Taste**: The ability to taste.
+6. **Tactile**: The ability to feel texture.
+7. **Prop
+2024-12-01 00:30:20.665 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: to touch.
+4. **Smell**: The ability to smell.
+5. **Taste**: The ability to taste.
+6. **Tactile**: The ability to feel texture.
+7. **Prop
+2024-12-01 00:30:20.667 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
   "model" : "llama3.2",
   "options" : {
     "temperature" : 0.4,
     "num_predict" : 50
   },
   "stream" : false,
-  "prompt" : "Computer Vision**: The ability of machines to analyze and understand visual data, such as images and videos.\n7. **Machine Learning**: The process of teaching machines to perform tasks without being explicitly programmed.\n8. **Robotics**: The",
+  "prompt" : "to touch.\n4. **Smell**: The ability to smell.\n5. **Taste**: The ability to taste.\n6. **Tactile**: The ability to feel texture.\n7. **Prop",
   "raw" : false
 }
-2024-11-30 21:39:03.077 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
-  "response" : "...study and control of robots, which use a combination of computer vision, machine learning, and other technologies to interact with their environment.\n\nSo, the three related concepts are:\n\n1. Computer Vision: Analyzing and understanding visual data from images and videos",
+2024-12-01 00:30:21.411 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It seems like you're listing senses or abilities related to human perception.\n\nIf I'm correct, the completed list would be:\n\n1. **Touch**: The ability to touch.\n2. **Smell**: The ability to smell.\n3. **T",
   "httpStatusCode" : 200,
-  "responseTime" : 758
+  "responseTime" : 744
 }
-2024-11-30 21:39:03.078 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: ...study and control of robots, which use a combination of computer vision, machine learning, and other technologies to interact with their environment.
+2024-12-01 00:30:21.411 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing senses or abilities related to human perception.
 
-So, the three related concepts are:
+If I'm correct, the completed list would be:
 
-1. Computer Vision: Analyzing and understanding visual data from images and videos
-2024-11-30 21:39:03.080 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: ...study and control of robots, which use a combination of computer vision, machine learning, and other technologies to interact with their environment.
+1. **Touch**: The ability to touch.
+2. **Smell**: The ability to smell.
+3. **T
+2024-12-01 00:30:21.412 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: It seems like you're listing senses or abilities related to human perception.
 
-So, the three related concepts are:
+If I'm correct, the completed list would be:
 
-1. Computer Vision: Analyzing and understanding visual data from images and videos (Retries left: 3)
-2024-11-30 21:39:03.081 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
-2024-11-30 21:39:03.083 [ConversationSystem-akka.actor.default-dispatcher-22] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
-2024-11-30 21:39:04.801 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.EC2Service - Received OK response from EC2
-2024-11-30 21:39:04.802 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.services.EC2Service - Successfully processed EC2 response: to perform tasks such as object detection, tracking, and recognition.
-2. Machine Learning: Training computers to perform tasks by analyzing data and making predictions based on that data.
-3. Robotics: Designing and building robots that can perform various tasks
-2024-11-30 21:39:04.803 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.ConversationalAgent - Turn 5: Prompt='...study and control of robots, which use a combination of computer vision, machine learning, and other technologies to interact with their environment.
+1. **Touch**: The ability to touch.
+2. **Smell**: The ability to smell.
+3. **T (Retries left: 3)
+2024-12-01 00:30:21.413 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-34-236-143-255.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:30:21.416 [ConversationSystem-akka.actor.default-dispatcher-18] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:30:23.475 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:30:23.476 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.EC2Service - Successfully processed EC2 response: aste**: The ability to taste.
+4. **Hearing**: The ability to hear.
+5. **Sight**: The ability to see.
+Here is a revised list that addresses your concerns:
+1. **S
+2024-12-01 00:30:23.477 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.ConversationalAgent - Turn 5: Prompt='It seems like you're listing senses or abilities related to human perception.
 
-So, the three related concepts are:
+If I'm correct, the completed list would be:
 
-1. Computer Vision: Analyzing and understanding visual data from images and videos', Response='to perform tasks such as object detection, tracking, and recognition.
-2. Machine Learning: Training computers to perform tasks by analyzing data and making predictions based on that data.
-3. Robotics: Designing and building robots that can perform various tasks'
-2024-11-30 21:39:04.803 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.OllamaService - Generating next prompt based on response: to perform tasks such as object detection, tracking, and recognition.
-2. Machine Learning: Training computers to perform tasks by analyzing data and making predictions based on that data.
-3. Robotics: Designing and building robots that can perform various tasks
-2024-11-30 21:39:04.803 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.services.OllamaService - Sending prompt to Ollama: to perform tasks such as object detection, tracking, and recognition.
-2. Machine Learning: Training computers to perform tasks by analyzing data and making predictions based on that data.
-3. Robotics: Designing and building robots that can perform various tasks
-2024-11-30 21:39:04.805 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+1. **Touch**: The ability to touch.
+2. **Smell**: The ability to smell.
+3. **T', Response='aste**: The ability to taste.
+4. **Hearing**: The ability to hear.
+5. **Sight**: The ability to see.
+Here is a revised list that addresses your concerns:
+1. **S'
+2024-12-01 00:30:23.477 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generating next prompt based on response: aste**: The ability to taste.
+4. **Hearing**: The ability to hear.
+5. **Sight**: The ability to see.
+Here is a revised list that addresses your concerns:
+1. **S
+2024-12-01 00:30:23.477 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.OllamaService - Sending prompt to Ollama: aste**: The ability to taste.
+4. **Hearing**: The ability to hear.
+5. **Sight**: The ability to see.
+Here is a revised list that addresses your concerns:
+1. **S
+2024-12-01 00:30:23.479 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
   "model" : "llama3.2",
   "options" : {
     "temperature" : 0.4,
     "num_predict" : 50
   },
   "stream" : false,
-  "prompt" : "to perform tasks such as object detection, tracking, and recognition.\n2. Machine Learning: Training computers to perform tasks by analyzing data and making predictions based on that data.\n3. Robotics: Designing and building robots that can perform various tasks",
+  "prompt" : "aste**: The ability to taste.\n4. **Hearing**: The ability to hear.\n5. **Sight**: The ability to see.\nHere is a revised list that addresses your concerns:\n1. **S",
   "raw" : false
 }
-2024-11-30 21:39:05.519 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  io.github.ollama4j.OllamaAPI - Model response: {
-  "response" : "It seems like you're listing some examples of areas where artificial intelligence (AI) is applied.\n\nHere's a more detailed explanation of each area:\n\n1. **Computer Vision**: This field uses machine learning algorithms to enable computers to interpret and understand visual data",
+2024-12-01 00:30:24.119 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It looks like you started to provide a list, but it got cut off. Please go ahead and finish the list, and I'll be happy to help you with whatever question or task you have in mind!",
   "httpStatusCode" : 200,
-  "responseTime" : 715
+  "responseTime" : 641
 }
-2024-11-30 21:39:05.520 [ConversationSystem-akka.actor.default-dispatcher-22] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing some examples of areas where artificial intelligence (AI) is applied.
+2024-12-01 00:30:24.120 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generated follow-up question: It looks like you started to provide a list, but it got cut off. Please go ahead and finish the list, and I'll be happy to help you with whatever question or task you have in mind!
+2024-12-01 00:30:24.121 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.ConversationalAgent - Conversation 1ff614ff-9678-4bcd-b604-975e38bd8619 completed with 5 turns
+2024-12-01 00:30:24.122 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.ConversationalAgent - Saving conversation 1ff614ff-9678-4bcd-b604-975e38bd8619 with 5 turns
+2024-12-01 00:30:24.136 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-30-24.json
+2024-12-01 00:30:24.141 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-30-24.txt
+2024-12-01 00:30:24.143 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-12-01_00-30-24.json and 2024-12-01_00-30-24.txt
+2024-12-01 00:30:24.144 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  Main$ - Conversation completed successfully. Conversation ID: 1ff614ff-9678-4bcd-b604-975e38bd8619
+2024-12-01 00:31:54.596 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:31:54.687 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:31:54.718 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 581d307a-3fa3-4b7c-bc9b-89eedcf5acd9
+2024-12-01 00:31:54.719 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:31:54.867 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:31:55.558 [ConversationSystem-akka.actor.default-dispatcher-6] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:31:58.100 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:31:58.116 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Artificial intelligence (AI) refers to the simulation of human intelligence by machines, especially computer systems. It is concerned with getting computers to do tasks that would normally require human intelligence.
 
-Here's a more detailed explanation of each area:
+AI research started in the late 1950
+2024-12-01 00:31:58.119 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 1: Prompt='Tell me about artificial intelligence', Response='Artificial intelligence (AI) refers to the simulation of human intelligence by machines, especially computer systems. It is concerned with getting computers to do tasks that would normally require human intelligence.
 
-1. **Computer Vision**: This field uses machine learning algorithms to enable computers to interpret and understand visual data
-2024-11-30 21:39:05.520 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.ConversationalAgent - Conversation d6c57e95-cf88-4d8d-9730-fdd56e07749e completed with 5 turns
-2024-11-30 21:39:05.521 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  conversation.ConversationalAgent - Saving conversation d6c57e95-cf88-4d8d-9730-fdd56e07749e with 5 turns
-2024-11-30 21:39:05.539 [ConversationSystem-akka.actor.default-dispatcher-22] INFO  Main$ - Conversation completed successfully. Conversation ID: d6c57e95-cf88-4d8d-9730-fdd56e07749e
+AI research started in the late 1950'
+2024-12-01 00:31:58.120 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Artificial intelligence (AI) refers to the simulation of human intelligence by machines, especially computer systems. It is concerned with getting computers to do tasks that would normally require human intelligence.
+
+AI research started in the late 1950
+2024-12-01 00:31:58.122 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Artificial intelligence (AI) refers to the simulation of human intelligence by machines, especially computer systems. It is concerned with getting computers to do tasks that would normally require human intelligence.
+
+AI research started in the late 1950
+2024-12-01 00:31:58.379 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "Artificial intelligence (AI) refers to the simulation of human intelligence by machines, especially computer systems. It is concerned with getting computers to do tasks that would normally require human intelligence.\n\nAI research started in the late 1950",
+  "raw" : false
+}
+2024-12-01 00:31:59.317 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "...1960s at Dartmouth College, where a group of researchers, including John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, gathered to discuss the possibilities of creating machines that could simulate human intelligence. This meeting is often referred",
+  "httpStatusCode" : 200,
+  "responseTime" : 1191
+}
+2024-12-01 00:31:59.317 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: ...1960s at Dartmouth College, where a group of researchers, including John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, gathered to discuss the possibilities of creating machines that could simulate human intelligence. This meeting is often referred
+2024-12-01 00:31:59.318 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: ...1960s at Dartmouth College, where a group of researchers, including John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, gathered to discuss the possibilities of creating machines that could simulate human intelligence. This meeting is often referred (Retries left: 3)
+2024-12-01 00:31:59.319 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:31:59.322 [ConversationSystem-akka.actor.default-dispatcher-6] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:32:01.070 [ConversationSystem-akka.actor.default-dispatcher-15] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:32:01.071 [ConversationSystem-akka.actor.default-dispatcher-15] INFO  conversation.services.EC2Service - Successfully processed EC2 response: to as the "Father of Artificial Intelligence".
+The group started by exploring the concept of "artificial intelligence" itself. They defined it as the study of getting machines to perform tasks that would normally require human intelligence, such as recognizing speech
+2024-12-01 00:32:01.072 [ConversationSystem-akka.actor.default-dispatcher-15] DEBUG conversation.ConversationalAgent - Turn 2: Prompt='...1960s at Dartmouth College, where a group of researchers, including John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, gathered to discuss the possibilities of creating machines that could simulate human intelligence. This meeting is often referred', Response='to as the "Father of Artificial Intelligence".
+The group started by exploring the concept of "artificial intelligence" itself. They defined it as the study of getting machines to perform tasks that would normally require human intelligence, such as recognizing speech'
+2024-12-01 00:32:01.072 [ConversationSystem-akka.actor.default-dispatcher-15] DEBUG conversation.services.OllamaService - Generating next prompt based on response: to as the "Father of Artificial Intelligence".
+The group started by exploring the concept of "artificial intelligence" itself. They defined it as the study of getting machines to perform tasks that would normally require human intelligence, such as recognizing speech
+2024-12-01 00:32:01.072 [ConversationSystem-akka.actor.default-dispatcher-15] INFO  conversation.services.OllamaService - Sending prompt to Ollama: to as the "Father of Artificial Intelligence".
+The group started by exploring the concept of "artificial intelligence" itself. They defined it as the study of getting machines to perform tasks that would normally require human intelligence, such as recognizing speech
+2024-12-01 00:32:01.074 [ConversationSystem-akka.actor.default-dispatcher-15] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "to as the \"Father of Artificial Intelligence\".\nThe group started by exploring the concept of \"artificial intelligence\" itself. They defined it as the study of getting machines to perform tasks that would normally require human intelligence, such as recognizing speech",
+  "raw" : false
+}
+2024-12-01 00:32:01.819 [ConversationSystem-akka.actor.default-dispatcher-15] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "You're referring to Alan Turing, often considered the \"Father of Artificial Intelligence\". In 1950, Turing published a paper titled \"Computing Machinery and Intelligence\", in which he proposed the Turing Test as a measure of a machine's ability to exhibit",
+  "httpStatusCode" : 200,
+  "responseTime" : 746
+}
+2024-12-01 00:32:01.820 [ConversationSystem-akka.actor.default-dispatcher-15] DEBUG conversation.services.OllamaService - Generated follow-up question: You're referring to Alan Turing, often considered the "Father of Artificial Intelligence". In 1950, Turing published a paper titled "Computing Machinery and Intelligence", in which he proposed the Turing Test as a measure of a machine's ability to exhibit
+2024-12-01 00:32:01.821 [ConversationSystem-akka.actor.default-dispatcher-15] DEBUG conversation.services.EC2Service - Processing query with prompt: You're referring to Alan Turing, often considered the "Father of Artificial Intelligence". In 1950, Turing published a paper titled "Computing Machinery and Intelligence", in which he proposed the Turing Test as a measure of a machine's ability to exhibit (Retries left: 3)
+2024-12-01 00:32:01.822 [ConversationSystem-akka.actor.default-dispatcher-15] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:32:01.824 [ConversationSystem-akka.actor.default-dispatcher-6] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:32:03.461 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:32:03.462 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: intelligent behavior. Turing's test is still used today to evaluate AI systems' ability to exhibit intelligent behavior.
+
+Would you like to know more about Alan Turing and his work?
+2024-12-01 00:32:03.463 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 3: Prompt='You're referring to Alan Turing, often considered the "Father of Artificial Intelligence". In 1950, Turing published a paper titled "Computing Machinery and Intelligence", in which he proposed the Turing Test as a measure of a machine's ability to exhibit', Response='intelligent behavior. Turing's test is still used today to evaluate AI systems' ability to exhibit intelligent behavior.
+
+Would you like to know more about Alan Turing and his work?'
+2024-12-01 00:32:03.463 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: intelligent behavior. Turing's test is still used today to evaluate AI systems' ability to exhibit intelligent behavior.
+
+Would you like to know more about Alan Turing and his work?
+2024-12-01 00:32:03.464 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: intelligent behavior. Turing's test is still used today to evaluate AI systems' ability to exhibit intelligent behavior.
+
+Would you like to know more about Alan Turing and his work?
+2024-12-01 00:32:03.465 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "intelligent behavior. Turing's test is still used today to evaluate AI systems' ability to exhibit intelligent behavior.\n\nWould you like to know more about Alan Turing and his work?",
+  "raw" : false
+}
+2024-12-01 00:32:04.120 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "I'd love to learn more about Alan Turing and his groundbreaking contributions to computer science, artificial intelligence, and cryptography.\n\nAlan Turing was a British mathematician, computer scientist, logician, philosopher, and codebreaker who made significant contributions to the development of",
+  "httpStatusCode" : 200,
+  "responseTime" : 656
+}
+2024-12-01 00:32:04.121 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: I'd love to learn more about Alan Turing and his groundbreaking contributions to computer science, artificial intelligence, and cryptography.
+
+Alan Turing was a British mathematician, computer scientist, logician, philosopher, and codebreaker who made significant contributions to the development of
+2024-12-01 00:32:04.121 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: I'd love to learn more about Alan Turing and his groundbreaking contributions to computer science, artificial intelligence, and cryptography.
+
+Alan Turing was a British mathematician, computer scientist, logician, philosopher, and codebreaker who made significant contributions to the development of (Retries left: 3)
+2024-12-01 00:32:04.122 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:32:04.124 [ConversationSystem-akka.actor.default-dispatcher-15] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:32:05.761 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:32:05.762 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Sorry - this model is designed to avoid potentially inappropriate content targeting individuals or groups.
+2024-12-01 00:32:05.762 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 4: Prompt='I'd love to learn more about Alan Turing and his groundbreaking contributions to computer science, artificial intelligence, and cryptography.
+
+Alan Turing was a British mathematician, computer scientist, logician, philosopher, and codebreaker who made significant contributions to the development of', Response='Sorry - this model is designed to avoid potentially inappropriate content targeting individuals or groups.'
+2024-12-01 00:32:05.763 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Sorry - this model is designed to avoid potentially inappropriate content targeting individuals or groups.
+2024-12-01 00:32:05.763 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Sorry - this model is designed to avoid potentially inappropriate content targeting individuals or groups.
+2024-12-01 00:32:05.766 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "Sorry - this model is designed to avoid potentially inappropriate content targeting individuals or groups.",
+  "raw" : false
+}
+2024-12-01 00:32:06.430 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "No need to apologize! I'm here to provide helpful and informative responses while maintaining a safe and respectful environment for all users.\n\nIf you have any questions, topics you'd like to discuss, or need assistance with something, feel free to ask me anything",
+  "httpStatusCode" : 200,
+  "responseTime" : 666
+}
+2024-12-01 00:32:06.431 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: No need to apologize! I'm here to provide helpful and informative responses while maintaining a safe and respectful environment for all users.
+
+If you have any questions, topics you'd like to discuss, or need assistance with something, feel free to ask me anything
+2024-12-01 00:32:06.432 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Processing query with prompt: No need to apologize! I'm here to provide helpful and informative responses while maintaining a safe and respectful environment for all users.
+
+If you have any questions, topics you'd like to discuss, or need assistance with something, feel free to ask me anything (Retries left: 3)
+2024-12-01 00:32:06.432 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:32:06.434 [ConversationSystem-akka.actor.default-dispatcher-19] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:32:07.171 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:32:07.172 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.EC2Service - Successfully processed EC2 response: ! I'm here to help.
+2024-12-01 00:32:07.173 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.ConversationalAgent - Turn 5: Prompt='No need to apologize! I'm here to provide helpful and informative responses while maintaining a safe and respectful environment for all users.
+
+If you have any questions, topics you'd like to discuss, or need assistance with something, feel free to ask me anything', Response='! I'm here to help.'
+2024-12-01 00:32:07.173 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generating next prompt based on response: ! I'm here to help.
+2024-12-01 00:32:07.173 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.services.OllamaService - Sending prompt to Ollama: ! I'm here to help.
+2024-12-01 00:32:07.175 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "! I'm here to help.",
+  "raw" : false
+}
+2024-12-01 00:32:07.770 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "Thank you for offering to help! However, it seems like we just started our conversation and haven't discussed anything yet. Is there something specific you'd like to talk about or help with? I'm all ears!",
+  "httpStatusCode" : 200,
+  "responseTime" : 596
+}
+2024-12-01 00:32:07.771 [ConversationSystem-akka.actor.default-dispatcher-6] DEBUG conversation.services.OllamaService - Generated follow-up question: Thank you for offering to help! However, it seems like we just started our conversation and haven't discussed anything yet. Is there something specific you'd like to talk about or help with? I'm all ears!
+2024-12-01 00:32:07.771 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.ConversationalAgent - Conversation 581d307a-3fa3-4b7c-bc9b-89eedcf5acd9 completed with 5 turns
+2024-12-01 00:32:07.772 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  conversation.ConversationalAgent - Saving conversation 581d307a-3fa3-4b7c-bc9b-89eedcf5acd9 with 5 turns
+2024-12-01 00:32:07.784 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-32-07.json
+2024-12-01 00:32:07.790 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-32-07.txt
+2024-12-01 00:32:07.790 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-12-01_00-32-07.json and 2024-12-01_00-32-07.txt
+2024-12-01 00:32:07.791 [ConversationSystem-akka.actor.default-dispatcher-6] INFO  Main$ - Conversation completed successfully. Conversation ID: 581d307a-3fa3-4b7c-bc9b-89eedcf5acd9
+2024-12-01 00:51:39.610 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:51:39.693 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:51:39.718 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: 4518adbc-907a-4b7f-90e3-6dd8ba525728
+2024-12-01 00:51:39.719 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:51:39.873 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:51:40.531 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:51:57.455 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:51:57.479 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Artificial intelligence (AI) is a field of computer science that aims to create machines that can perform tasks that would normally require human intelligence. AI systems are designed to learn and adapt through experience, making decisions and performing tasks without being explicitly programmed
+2024-12-01 00:51:57.482 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 1: Prompt='Tell me about artificial intelligence', Response='Artificial intelligence (AI) is a field of computer science that aims to create machines that can perform tasks that would normally require human intelligence. AI systems are designed to learn and adapt through experience, making decisions and performing tasks without being explicitly programmed'
+2024-12-01 00:51:57.483 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Artificial intelligence (AI) is a field of computer science that aims to create machines that can perform tasks that would normally require human intelligence. AI systems are designed to learn and adapt through experience, making decisions and performing tasks without being explicitly programmed
+2024-12-01 00:51:57.485 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Artificial intelligence (AI) is a field of computer science that aims to create machines that can perform tasks that would normally require human intelligence. AI systems are designed to learn and adapt through experience, making decisions and performing tasks without being explicitly programmed
+2024-12-01 00:51:57.741 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "Artificial intelligence (AI) is a field of computer science that aims to create machines that can perform tasks that would normally require human intelligence. AI systems are designed to learn and adapt through experience, making decisions and performing tasks without being explicitly programmed",
+  "raw" : false
+}
+2024-12-01 00:52:03.167 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "That's a great summary! Artificial intelligence (AI) is indeed a rapidly evolving field in computer science that focuses on creating intelligent machines capable of performing tasks that typically require human intelligence, such as:\n\n1. Learning and adaptation\n2. Decision-making",
+  "httpStatusCode" : 200,
+  "responseTime" : 5677
+}
+2024-12-01 00:52:03.168 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: That's a great summary! Artificial intelligence (AI) is indeed a rapidly evolving field in computer science that focuses on creating intelligent machines capable of performing tasks that typically require human intelligence, such as:
+
+1. Learning and adaptation
+2. Decision-making
+2024-12-01 00:52:03.169 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: That's a great summary! Artificial intelligence (AI) is indeed a rapidly evolving field in computer science that focuses on creating intelligent machines capable of performing tasks that typically require human intelligence, such as:
+
+1. Learning and adaptation
+2. Decision-making (Retries left: 3)
+2024-12-01 00:52:03.171 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:52:03.174 [ConversationSystem-akka.actor.default-dispatcher-8] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:52:04.958 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:52:04.959 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: 3. Natural language processing
+4. Object recognition
+5. Prediction
+6. Generating natural language
+7. Visual perception
+8. Knowledge representation
+9. Planning
+10. Reasoning
+11. Perception
+1
+2024-12-01 00:52:04.960 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 2: Prompt='That's a great summary! Artificial intelligence (AI) is indeed a rapidly evolving field in computer science that focuses on creating intelligent machines capable of performing tasks that typically require human intelligence, such as:
+
+1. Learning and adaptation
+2. Decision-making', Response='3. Natural language processing
+4. Object recognition
+5. Prediction
+6. Generating natural language
+7. Visual perception
+8. Knowledge representation
+9. Planning
+10. Reasoning
+11. Perception
+1'
+2024-12-01 00:52:04.960 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: 3. Natural language processing
+4. Object recognition
+5. Prediction
+6. Generating natural language
+7. Visual perception
+8. Knowledge representation
+9. Planning
+10. Reasoning
+11. Perception
+1
+2024-12-01 00:52:04.960 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: 3. Natural language processing
+4. Object recognition
+5. Prediction
+6. Generating natural language
+7. Visual perception
+8. Knowledge representation
+9. Planning
+10. Reasoning
+11. Perception
+1
+2024-12-01 00:52:04.962 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "3. Natural language processing\n4. Object recognition\n5. Prediction\n6. Generating natural language\n7. Visual perception\n8. Knowledge representation\n9. Planning\n10. Reasoning\n11. Perception\n1",
+  "raw" : false
+}
+2024-12-01 00:52:05.641 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It appears you've listed a series of topics related to Artificial Intelligence (AI) and its subfields. Here's a breakdown of the topics you've listed, along with a brief explanation of each:\n\n1. **Natural Language Processing (NLP)**",
+  "httpStatusCode" : 200,
+  "responseTime" : 680
+}
+2024-12-01 00:52:05.641 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: It appears you've listed a series of topics related to Artificial Intelligence (AI) and its subfields. Here's a breakdown of the topics you've listed, along with a brief explanation of each:
+
+1. **Natural Language Processing (NLP)**
+2024-12-01 00:52:05.642 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: It appears you've listed a series of topics related to Artificial Intelligence (AI) and its subfields. Here's a breakdown of the topics you've listed, along with a brief explanation of each:
+
+1. **Natural Language Processing (NLP)** (Retries left: 3)
+2024-12-01 00:52:05.643 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:52:05.646 [ConversationSystem-akka.actor.default-dispatcher-16] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:52:07.376 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:52:07.377 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Successfully processed EC2 response: - NLP is a field of AI that focuses on enabling computers to understand, interpret, and generate human language. It involves analyzing large amounts of textual data, such as emails, articles, and social media posts, and converting it into structured data
+2024-12-01 00:52:07.377 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.ConversationalAgent - Turn 3: Prompt='It appears you've listed a series of topics related to Artificial Intelligence (AI) and its subfields. Here's a breakdown of the topics you've listed, along with a brief explanation of each:
+
+1. **Natural Language Processing (NLP)**', Response='- NLP is a field of AI that focuses on enabling computers to understand, interpret, and generate human language. It involves analyzing large amounts of textual data, such as emails, articles, and social media posts, and converting it into structured data'
+2024-12-01 00:52:07.378 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generating next prompt based on response: - NLP is a field of AI that focuses on enabling computers to understand, interpret, and generate human language. It involves analyzing large amounts of textual data, such as emails, articles, and social media posts, and converting it into structured data
+2024-12-01 00:52:07.379 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.OllamaService - Sending prompt to Ollama: - NLP is a field of AI that focuses on enabling computers to understand, interpret, and generate human language. It involves analyzing large amounts of textual data, such as emails, articles, and social media posts, and converting it into structured data
+2024-12-01 00:52:07.381 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "- NLP is a field of AI that focuses on enabling computers to understand, interpret, and generate human language. It involves analyzing large amounts of textual data, such as emails, articles, and social media posts, and converting it into structured data",
+  "raw" : false
+}
+2024-12-01 00:52:08.036 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "That's correct! Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that deals with the interaction between computers and humans in natural language. It involves various tasks such as:\n\n1. **Text Analysis**: Analyzing large",
+  "httpStatusCode" : 200,
+  "responseTime" : 656
+}
+2024-12-01 00:52:08.036 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.OllamaService - Generated follow-up question: That's correct! Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that deals with the interaction between computers and humans in natural language. It involves various tasks such as:
+
+1. **Text Analysis**: Analyzing large
+2024-12-01 00:52:08.037 [ConversationSystem-akka.actor.default-dispatcher-8] DEBUG conversation.services.EC2Service - Processing query with prompt: That's correct! Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that deals with the interaction between computers and humans in natural language. It involves various tasks such as:
+
+1. **Text Analysis**: Analyzing large (Retries left: 3)
+2024-12-01 00:52:08.037 [ConversationSystem-akka.actor.default-dispatcher-8] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:52:08.039 [ConversationSystem-akka.actor.default-dispatcher-18] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:52:09.741 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:52:09.742 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.EC2Service - Successfully processed EC2 response: amounts of text to extract meaningful information, such as sentiment, topic, and key phrases.
+2. **Speech Recognition**: Transcribing audio into text.
+3. **Machine Translation**: Translating text from one language to another.
+2024-12-01 00:52:09.743 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.ConversationalAgent - Turn 4: Prompt='That's correct! Natural Language Processing (NLP) is a subfield of artificial intelligence (AI) that deals with the interaction between computers and humans in natural language. It involves various tasks such as:
+
+1. **Text Analysis**: Analyzing large', Response='amounts of text to extract meaningful information, such as sentiment, topic, and key phrases.
+2. **Speech Recognition**: Transcribing audio into text.
+3. **Machine Translation**: Translating text from one language to another.'
+2024-12-01 00:52:09.743 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generating next prompt based on response: amounts of text to extract meaningful information, such as sentiment, topic, and key phrases.
+2. **Speech Recognition**: Transcribing audio into text.
+3. **Machine Translation**: Translating text from one language to another.
+2024-12-01 00:52:09.743 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.OllamaService - Sending prompt to Ollama: amounts of text to extract meaningful information, such as sentiment, topic, and key phrases.
+2. **Speech Recognition**: Transcribing audio into text.
+3. **Machine Translation**: Translating text from one language to another.
+2024-12-01 00:52:09.745 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "amounts of text to extract meaningful information, such as sentiment, topic, and key phrases.\n2. **Speech Recognition**: Transcribing audio into text.\n3. **Machine Translation**: Translating text from one language to another.",
+  "raw" : false
+}
+2024-12-01 00:52:10.438 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "Here are some general guidelines for the amounts of text required to extract meaningful information:\n\n1.  **Sentiment Analysis:**\n    *   Short texts (e.g., social media posts, product reviews): 50-100 words\n    *",
+  "httpStatusCode" : 200,
+  "responseTime" : 694
+}
+2024-12-01 00:52:10.439 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generated follow-up question: Here are some general guidelines for the amounts of text required to extract meaningful information:
+
+1.  **Sentiment Analysis:**
+    *   Short texts (e.g., social media posts, product reviews): 50-100 words
+    *
+2024-12-01 00:52:10.440 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.EC2Service - Processing query with prompt: Here are some general guidelines for the amounts of text required to extract meaningful information:
+
+1.  **Sentiment Analysis:**
+    *   Short texts (e.g., social media posts, product reviews): 50-100 words
+    * (Retries left: 3)
+2024-12-01 00:52:10.441 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.EC2Service - Sending request to EC2: http://ec2-54-89-45-115.compute-1.amazonaws.com:8000/generate
+2024-12-01 00:52:10.443 [ConversationSystem-akka.actor.default-dispatcher-19] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:52:12.767 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:52:12.768 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Long texts (e.g., research papers, books): 1,000-5,000 words
+2.  **Topic Modeling:**
+    *  Short texts (e.g., news articles, blog
+2024-12-01 00:52:12.769 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.ConversationalAgent - Turn 5: Prompt='Here are some general guidelines for the amounts of text required to extract meaningful information:
+
+1.  **Sentiment Analysis:**
+    *   Short texts (e.g., social media posts, product reviews): 50-100 words
+    *', Response='Long texts (e.g., research papers, books): 1,000-5,000 words
+2.  **Topic Modeling:**
+    *  Short texts (e.g., news articles, blog'
+2024-12-01 00:52:12.769 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Long texts (e.g., research papers, books): 1,000-5,000 words
+2.  **Topic Modeling:**
+    *  Short texts (e.g., news articles, blog
+2024-12-01 00:52:12.770 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Long texts (e.g., research papers, books): 1,000-5,000 words
+2.  **Topic Modeling:**
+    *  Short texts (e.g., news articles, blog
+2024-12-01 00:52:12.771 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "Long texts (e.g., research papers, books): 1,000-5,000 words\n2.  **Topic Modeling:**\n    *  Short texts (e.g., news articles, blog",
+  "raw" : false
+}
+2024-12-01 00:52:13.552 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "Here is a more detailed outline of the two types of text:\n\n**1. Long texts (e.g., research papers, books)**\n\n*   Typical length: 1,000-5,000 words\n*   Characteristics:\n    *",
+  "httpStatusCode" : 200,
+  "responseTime" : 782
+}
+2024-12-01 00:52:13.552 [ConversationSystem-akka.actor.default-dispatcher-18] DEBUG conversation.services.OllamaService - Generated follow-up question: Here is a more detailed outline of the two types of text:
+
+**1. Long texts (e.g., research papers, books)**
+
+*   Typical length: 1,000-5,000 words
+*   Characteristics:
+    *
+2024-12-01 00:52:13.553 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.ConversationalAgent - Conversation 4518adbc-907a-4b7f-90e3-6dd8ba525728 completed with 5 turns
+2024-12-01 00:52:13.554 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  conversation.ConversationalAgent - Saving conversation 4518adbc-907a-4b7f-90e3-6dd8ba525728 with 5 turns
+2024-12-01 00:52:13.564 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-52-13.json
+2024-12-01 00:52:13.569 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-52-13.txt
+2024-12-01 00:52:13.570 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-12-01_00-52-13.json and 2024-12-01_00-52-13.txt
+2024-12-01 00:52:13.570 [ConversationSystem-akka.actor.default-dispatcher-18] INFO  Main$ - Conversation completed successfully. Conversation ID: 4518adbc-907a-4b7f-90e3-6dd8ba525728
+2024-12-01 00:53:42.278 [ConversationSystem-akka.actor.default-dispatcher-3] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+2024-12-01 00:53:42.394 [main] INFO  Main$ - Starting conversation with initial prompt: Tell me about artificial intelligence
+2024-12-01 00:53:42.429 [main] INFO  conversation.ConversationalAgent - Starting new conversation with ID: ebee6c99-de91-443c-9f45-a00e7278ac35
+2024-12-01 00:53:42.430 [main] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 3)
+2024-12-01 00:53:42.628 [main] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:43.477 [ConversationSystem-akka.actor.default-dispatcher-3] WARN  conversation.services.EC2Service - Request failed: Tcp command [Connect(llm-server/<unresolved>:8000,None,List(),Some(10 seconds),true)] failed because of java.net.ConnectException: Connection refused. Retrying in 5 seconds...
+2024-12-01 00:53:48.499 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.EC2Service - Processing query with prompt: Tell me about artificial intelligence (Retries left: 2)
+2024-12-01 00:53:48.500 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:48.528 [ConversationSystem-akka.actor.default-dispatcher-19] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:53:51.043 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:53:51.059 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.EC2Service - Successfully processed EC2 response: Artificial intelligence (AI) is a broad concept that refers to the development of computer systems that can perform tasks that typically require human intelligence. AI systems are designed to learn from data, reason, perceive their environment, and make decisions with minimal
+2024-12-01 00:53:51.064 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.ConversationalAgent - Turn 1: Prompt='Tell me about artificial intelligence', Response='Artificial intelligence (AI) is a broad concept that refers to the development of computer systems that can perform tasks that typically require human intelligence. AI systems are designed to learn from data, reason, perceive their environment, and make decisions with minimal'
+2024-12-01 00:53:51.065 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.OllamaService - Generating next prompt based on response: Artificial intelligence (AI) is a broad concept that refers to the development of computer systems that can perform tasks that typically require human intelligence. AI systems are designed to learn from data, reason, perceive their environment, and make decisions with minimal
+2024-12-01 00:53:51.066 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.OllamaService - Sending prompt to Ollama: Artificial intelligence (AI) is a broad concept that refers to the development of computer systems that can perform tasks that typically require human intelligence. AI systems are designed to learn from data, reason, perceive their environment, and make decisions with minimal
+2024-12-01 00:53:51.322 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "Artificial intelligence (AI) is a broad concept that refers to the development of computer systems that can perform tasks that typically require human intelligence. AI systems are designed to learn from data, reason, perceive their environment, and make decisions with minimal",
+  "raw" : false
+}
+2024-12-01 00:53:52.320 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "human intervention. The field of artificial intelligence encompasses various subfields, including machine learning, natural language processing, computer vision, and robotics.\n\nThere are several key characteristics of AI systems:\n\n1. **Learning**: AI systems can learn from data, experiences,",
+  "httpStatusCode" : 200,
+  "responseTime" : 1250
+}
+2024-12-01 00:53:52.321 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.OllamaService - Generated follow-up question: human intervention. The field of artificial intelligence encompasses various subfields, including machine learning, natural language processing, computer vision, and robotics.
+
+There are several key characteristics of AI systems:
+
+1. **Learning**: AI systems can learn from data, experiences,
+2024-12-01 00:53:52.322 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.EC2Service - Processing query with prompt: human intervention. The field of artificial intelligence encompasses various subfields, including machine learning, natural language processing, computer vision, and robotics.
+
+There are several key characteristics of AI systems:
+
+1. **Learning**: AI systems can learn from data, experiences, (Retries left: 3)
+2024-12-01 00:53:52.323 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:52.325 [ConversationSystem-akka.actor.default-dispatcher-20] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:53:54.034 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:53:54.035 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.EC2Service - Successfully processed EC2 response: and feedback to improve their performance over time.
+
+2. **Adaptability**: AI systems can adapt to changing environments and situations.
+
+3. **Reasoning**: AI systems can use logic and reasoning to make decisions and solve problems.
+2024-12-01 00:53:54.036 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.ConversationalAgent - Turn 2: Prompt='human intervention. The field of artificial intelligence encompasses various subfields, including machine learning, natural language processing, computer vision, and robotics.
+
+There are several key characteristics of AI systems:
+
+1. **Learning**: AI systems can learn from data, experiences,', Response='and feedback to improve their performance over time.
+
+2. **Adaptability**: AI systems can adapt to changing environments and situations.
+
+3. **Reasoning**: AI systems can use logic and reasoning to make decisions and solve problems.'
+2024-12-01 00:53:54.036 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.OllamaService - Generating next prompt based on response: and feedback to improve their performance over time.
+
+2. **Adaptability**: AI systems can adapt to changing environments and situations.
+
+3. **Reasoning**: AI systems can use logic and reasoning to make decisions and solve problems.
+2024-12-01 00:53:54.036 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.OllamaService - Sending prompt to Ollama: and feedback to improve their performance over time.
+
+2. **Adaptability**: AI systems can adapt to changing environments and situations.
+
+3. **Reasoning**: AI systems can use logic and reasoning to make decisions and solve problems.
+2024-12-01 00:53:54.038 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "and feedback to improve their performance over time.\n\n2. **Adaptability**: AI systems can adapt to changing environments and situations.\n\n3. **Reasoning**: AI systems can use logic and reasoning to make decisions and solve problems.",
+  "raw" : false
+}
+2024-12-01 00:53:54.731 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "Here's an expanded version of the list with additional benefits and features:\n\n**Benefits of AI Systems:**\n\n1. **Improved Efficiency**: AI systems can automate repetitive tasks, freeing up time for more strategic and creative work.\n\n2. **Enhanced Accuracy",
+  "httpStatusCode" : 200,
+  "responseTime" : 694
+}
+2024-12-01 00:53:54.732 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.OllamaService - Generated follow-up question: Here's an expanded version of the list with additional benefits and features:
+
+**Benefits of AI Systems:**
+
+1. **Improved Efficiency**: AI systems can automate repetitive tasks, freeing up time for more strategic and creative work.
+
+2. **Enhanced Accuracy
+2024-12-01 00:53:54.733 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.EC2Service - Processing query with prompt: Here's an expanded version of the list with additional benefits and features:
+
+**Benefits of AI Systems:**
+
+1. **Improved Efficiency**: AI systems can automate repetitive tasks, freeing up time for more strategic and creative work.
+
+2. **Enhanced Accuracy (Retries left: 3)
+2024-12-01 00:53:54.734 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:54.737 [ConversationSystem-akka.actor.default-dispatcher-20] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:53:56.445 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:53:56.446 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.EC2Service - Successfully processed EC2 response: **: AI systems can make more accurate and informed decisions based on data and analytics.
+
+3. **Improved Customer Service**: AI systems can provide personalized and efficient customer service, responding to questions and requests quickly and accurately.
+
+4. **
+2024-12-01 00:53:56.446 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.ConversationalAgent - Turn 3: Prompt='Here's an expanded version of the list with additional benefits and features:
+
+**Benefits of AI Systems:**
+
+1. **Improved Efficiency**: AI systems can automate repetitive tasks, freeing up time for more strategic and creative work.
+
+2. **Enhanced Accuracy', Response='**: AI systems can make more accurate and informed decisions based on data and analytics.
+
+3. **Improved Customer Service**: AI systems can provide personalized and efficient customer service, responding to questions and requests quickly and accurately.
+
+4. **'
+2024-12-01 00:53:56.447 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.OllamaService - Generating next prompt based on response: **: AI systems can make more accurate and informed decisions based on data and analytics.
+
+3. **Improved Customer Service**: AI systems can provide personalized and efficient customer service, responding to questions and requests quickly and accurately.
+
+4. **
+2024-12-01 00:53:56.447 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.OllamaService - Sending prompt to Ollama: **: AI systems can make more accurate and informed decisions based on data and analytics.
+
+3. **Improved Customer Service**: AI systems can provide personalized and efficient customer service, responding to questions and requests quickly and accurately.
+
+4. **
+2024-12-01 00:53:56.449 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "**: AI systems can make more accurate and informed decisions based on data and analytics.\n\n3. **Improved Customer Service**: AI systems can provide personalized and efficient customer service, responding to questions and requests quickly and accurately.\n\n4. **",
+  "raw" : false
+}
+2024-12-01 00:53:57.208 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "...and automating routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.\n\nSo the completed list would be:\n\n1. **AI Systems**: AI systems can make more accurate and informed decisions based on data and analytics",
+  "httpStatusCode" : 200,
+  "responseTime" : 759
+}
+2024-12-01 00:53:57.208 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.OllamaService - Generated follow-up question: ...and automating routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+So the completed list would be:
+
+1. **AI Systems**: AI systems can make more accurate and informed decisions based on data and analytics
+2024-12-01 00:53:57.209 [ConversationSystem-akka.actor.default-dispatcher-20] DEBUG conversation.services.EC2Service - Processing query with prompt: ...and automating routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+So the completed list would be:
+
+1. **AI Systems**: AI systems can make more accurate and informed decisions based on data and analytics (Retries left: 3)
+2024-12-01 00:53:57.210 [ConversationSystem-akka.actor.default-dispatcher-20] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:57.212 [ConversationSystem-akka.actor.default-dispatcher-19] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:53:58.942 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:53:58.943 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.EC2Service - Successfully processed EC2 response: , reducing the need for human intervention.
+
+2. **Robotic Process Automation (RPA):** RPA can automate routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+3
+2024-12-01 00:53:58.944 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.ConversationalAgent - Turn 4: Prompt='...and automating routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+So the completed list would be:
+
+1. **AI Systems**: AI systems can make more accurate and informed decisions based on data and analytics', Response=', reducing the need for human intervention.
+
+2. **Robotic Process Automation (RPA):** RPA can automate routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+3'
+2024-12-01 00:53:58.944 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.OllamaService - Generating next prompt based on response: , reducing the need for human intervention.
+
+2. **Robotic Process Automation (RPA):** RPA can automate routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+3
+2024-12-01 00:53:58.944 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.OllamaService - Sending prompt to Ollama: , reducing the need for human intervention.
+
+2. **Robotic Process Automation (RPA):** RPA can automate routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.
+
+3
+2024-12-01 00:53:58.946 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : ", reducing the need for human intervention.\n\n2. **Robotic Process Automation (RPA):** RPA can automate routine tasks, freeing up human customer support agents to focus on more complex and high-value issues.\n\n3",
+  "raw" : false
+}
+2024-12-01 00:53:59.610 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It seems like you're listing some benefits of automation in customer service. Here's a possible expansion of the third point:\n\n3. **Improved Response Times:** By automating routine tasks, businesses can respond to customer inquiries and resolve simple issues quickly, reducing",
+  "httpStatusCode" : 200,
+  "responseTime" : 665
+}
+2024-12-01 00:53:59.611 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing some benefits of automation in customer service. Here's a possible expansion of the third point:
+
+3. **Improved Response Times:** By automating routine tasks, businesses can respond to customer inquiries and resolve simple issues quickly, reducing
+2024-12-01 00:53:59.611 [ConversationSystem-akka.actor.default-dispatcher-19] DEBUG conversation.services.EC2Service - Processing query with prompt: It seems like you're listing some benefits of automation in customer service. Here's a possible expansion of the third point:
+
+3. **Improved Response Times:** By automating routine tasks, businesses can respond to customer inquiries and resolve simple issues quickly, reducing (Retries left: 3)
+2024-12-01 00:53:59.612 [ConversationSystem-akka.actor.default-dispatcher-19] INFO  conversation.services.EC2Service - Sending request to EC2: http://llm-server:8000/generate
+2024-12-01 00:53:59.614 [ConversationSystem-akka.actor.default-dispatcher-19] WARN  akka.actor.ActorSystemImpl - Explicitly set HTTP header 'Content-Type: application/json' is ignored, explicit `Content-Type` header is not allowed. Set `HttpRequest.entity.contentType` instead.
+2024-12-01 00:54:01.251 [ConversationSystem-akka.actor.default-dispatcher-26] DEBUG conversation.services.EC2Service - Received OK response from EC2
+2024-12-01 00:54:01.252 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  conversation.services.EC2Service - Successfully processed EC2 response: the time customers wait for a resolution.
+4. **Personalized Customer Experiences:** AI-powered chatbots can provide personalized recommendations and assistance, enhancing the customer experience and building customer loyalty.
+5. **Increased Efficiency:**
+2024-12-01 00:54:01.253 [ConversationSystem-akka.actor.default-dispatcher-26] DEBUG conversation.ConversationalAgent - Turn 5: Prompt='It seems like you're listing some benefits of automation in customer service. Here's a possible expansion of the third point:
+
+3. **Improved Response Times:** By automating routine tasks, businesses can respond to customer inquiries and resolve simple issues quickly, reducing', Response='the time customers wait for a resolution.
+4. **Personalized Customer Experiences:** AI-powered chatbots can provide personalized recommendations and assistance, enhancing the customer experience and building customer loyalty.
+5. **Increased Efficiency:**'
+2024-12-01 00:54:01.253 [ConversationSystem-akka.actor.default-dispatcher-26] DEBUG conversation.services.OllamaService - Generating next prompt based on response: the time customers wait for a resolution.
+4. **Personalized Customer Experiences:** AI-powered chatbots can provide personalized recommendations and assistance, enhancing the customer experience and building customer loyalty.
+5. **Increased Efficiency:**
+2024-12-01 00:54:01.254 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  conversation.services.OllamaService - Sending prompt to Ollama: the time customers wait for a resolution.
+4. **Personalized Customer Experiences:** AI-powered chatbots can provide personalized recommendations and assistance, enhancing the customer experience and building customer loyalty.
+5. **Increased Efficiency:**
+2024-12-01 00:54:01.256 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  io.github.ollama4j.OllamaAPI - Asking model: {
+  "model" : "llama3.2",
+  "options" : {
+    "temperature" : 0.4,
+    "num_predict" : 50
+  },
+  "stream" : false,
+  "prompt" : "the time customers wait for a resolution.\n4. **Personalized Customer Experiences:** AI-powered chatbots can provide personalized recommendations and assistance, enhancing the customer experience and building customer loyalty.\n5. **Increased Efficiency:**",
+  "raw" : false
+}
+2024-12-01 00:54:01.938 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  io.github.ollama4j.OllamaAPI - Model response: {
+  "response" : "It seems like you're listing some benefits of using AI-powered chatbots in customer service. Here's a possible completion of your list:\n\n1. **Reduced Wait Times**: AI-powered chatbots can help reduce wait times for customers by providing immediate support",
+  "httpStatusCode" : 200,
+  "responseTime" : 684
+}
+2024-12-01 00:54:01.938 [ConversationSystem-akka.actor.default-dispatcher-26] DEBUG conversation.services.OllamaService - Generated follow-up question: It seems like you're listing some benefits of using AI-powered chatbots in customer service. Here's a possible completion of your list:
+
+1. **Reduced Wait Times**: AI-powered chatbots can help reduce wait times for customers by providing immediate support
+2024-12-01 00:54:01.939 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  conversation.ConversationalAgent - Conversation ebee6c99-de91-443c-9f45-a00e7278ac35 completed with 5 turns
+2024-12-01 00:54:01.940 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  conversation.ConversationalAgent - Saving conversation ebee6c99-de91-443c-9f45-a00e7278ac35 with 5 turns
+2024-12-01 00:54:01.951 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-54-01.json
+2024-12-01 00:54:01.957 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  c.utils.ConversationLogger - Saved file: /app/conversations/2024-12-01_00-54-01.txt
+2024-12-01 00:54:01.958 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  c.utils.ConversationLogger - Conversation saved to files: 2024-12-01_00-54-01.json and 2024-12-01_00-54-01.txt
+2024-12-01 00:54:01.958 [ConversationSystem-akka.actor.default-dispatcher-26] INFO  Main$ - Conversation completed successfully. Conversation ID: ebee6c99-de91-443c-9f45-a00e7278ac35
